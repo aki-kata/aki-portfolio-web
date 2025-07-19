@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>AKIMITSU's Portfolio</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}"></link>
+</head>
+<body>
+  <h1>こんにちは、AKIMITSUです！</h1>
+  <p>ポートフォリオサイトへようこそ。</p>
+</body>
+<form id="dateForm">
+  <label for="dateInput">日付を選んでください：</label>
+  <input type="date" id="dateInput" name="date">
+  <p id="dayOfWeek"></p>
+</form>
+<script>
+document.getElementById("dateInput").addEventListener("change", function () {
+  const inputDate = new Date(this.value);
+  const days = ["日", "月", "火", "水", "木", "金", "土"];
+  const dayName = days[inputDate.getDay()];
+  document.getElementById("dayOfWeek").textContent = "選んだ日は「" + dayName + "曜日」です";
+});
+</script>
+</html>
